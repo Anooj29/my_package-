@@ -23,4 +23,15 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+  )
+
+# Ensure individual launch Python files are installed into the share/..../launch folder
+install(FILES
+  launch/talker.launch.py
+  launch/listener.launch.py
+  DESTINATION share/${PROJECT_NAME}/launch
+)
+
 ament_package()
